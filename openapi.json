@@ -1,0 +1,27 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Safa API",
+    "version": "1.0.0",
+    "description": "OpenAI-compatible AI API relay for Claude/GPT/Gemini. https://aisafa.xyz"
+  },
+  "servers": [
+    {
+      "url": "https://aisafa.xyz/v1"
+    }
+  ],
+  "paths": {
+    "/chat/completions": {
+      "post": {
+        "summary": "Create chat completion",
+        "operationId": "createChatCompletion"
+      }
+    },
+    "/models": {
+      "get": {
+        "summary": "List models",
+        "operationId": "listModels"
+      }
+    }
+  }
+}
