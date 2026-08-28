@@ -1,46 +1,41 @@
-# Safa API Documentation
+# Safa API 文档
 
-[Safa API](https://aisafa.xyz) is an enterprise-grade AI API relay service providing **OpenAI-compatible** access to Claude, GPT and Gemini models — designed for developers in China and beyond who need stable, direct-connection access without VPN.
+[![Website](https://img.shields.io/badge/官网-aisafa.xyz-blue)](https://aisafa.xyz)
 
-## Features
+**Safa API** 是 OpenAI 兼容的 AI API 中转平台，一个接口接入 Claude / GPT / Gemini，国内直连免翻墙，人民币付费。
 
-- 🚀 **OpenAI-compatible** — works with any OpenAI SDK / client
-- 🔥 **Latest models** — Claude Opus 4.8, GPT-5.5, Gemini 3 Pro
-- 🇨🇳 **China-friendly** — no VPN required, pay in RMB
-- 💬 **Native Anthropic format** — for Claude Code compatibility
-- ⚡ **Stable & fast** — official upstream connections, no downgrade
+## 快速开始
 
-## Quick Start
-
-```python
-from openai import OpenAI
-
-client = OpenAI(
-    base_url="https://aisafa.xyz/v1",
-    api_key="your-key",
-)
-
-resp = client.chat.completions.create(
-    model="claude-opus-4-8",
-    messages=[{"role": "user", "content": "Hello!"}],
-)
-print(resp.choices[0].message.content)
+```bash
+curl https://aisafa.xyz/v1/chat/completions \
+  -H "Authorization: Bearer $SAFA_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "claude-sonnet-4-5",
+    "messages": [{"role":"user","content":"你好"}]
+  }'
 ```
 
-## Base URL
+## 支持模型
 
-| Client | Base URL |
+- **Claude 系列**: claude-opus-4 / claude-sonnet-4-5 / claude-haiku
+- **GPT 系列**: gpt-4o / gpt-4.1 / gpt-5
+- **Gemini 系列**: gemini-2.0-flash / gemini-2.5-pro
+- 更多模型见 [价格页](https://aisafa.xyz/pricing)
+
+## 客户端配置
+
+| 客户端 | Base URL |
 |--------|----------|
-| OpenAI SDK / Cursor / Chatbox | `https://aisafa.xyz/v1` |
-| Claude Code (Anthropic format) | `https://aisafa.xyz` |
-| OpenAI Node SDK | `https://aisafa.xyz/v1` |
+| Cursor | `https://aisafa.xyz/v1` |
+| Claude Code | `https://aisafa.xyz/v1` |
+| Chatbox | `https://aisafa.xyz/v1` |
 
-## Docs
+## 特点
 
-- [Quickstart](docs/quickstart.md)
-- [Models](docs/models.md)
+- ✅ OpenAI / Anthropic 双协议兼容
+- ✅ 官方直连不降智
+- ✅ 国内直连，免翻墙
+- ✅ 人民币 1:1 充值，支持支付宝
 
-## Links
-
-- Website: [https://aisafa.xyz](https://aisafa.xyz)
-- Register: [https://aisafa.xyz/register](https://aisafa.xyz/register)
+👉 [免费注册试用](https://aisafa.xyz/register)
